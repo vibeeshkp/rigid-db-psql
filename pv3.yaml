@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv-3
+  labels:
+    name: mynfs # name can be anything
+spec:
+        # storageClassName: default # same storage class as pvc
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  nfs:
+    server: 172.31.35.255 # ip addres of nfs server
+    path: "/data3" # path to directory
